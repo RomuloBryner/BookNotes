@@ -1,0 +1,175 @@
+body {
+  background: url(/images/Wave.png);
+  /* background-position: center;
+  background-repeat: repeat;
+  background-size: cover; */
+}
+
+* {
+  margin-bottom: 0px !important;
+  padding: 0px;
+}
+
+.add input {
+  background-image: url(/images/plus.svg);
+  width: 200px;
+  height: 200px;
+}
+
+h2::first-letter {
+  text-transform: capitalize !important;
+}
+
+.filter #entry {
+  width: 200px;
+  border: none;
+  border-radius: 20px 0px 0px 20px;
+  padding: 0px 10px;
+}
+
+.search svg {
+  color: #ede8ff;
+}
+
+.search {
+  padding: 5px 15px;
+  border-radius: 0px 20px 20px 0px;
+  background-color: #8431f6;
+  color: #ede8ff;
+}
+
+.card {
+  width: 400px;
+  min-height: 537px;
+  border-radius: 16px;
+  background-color: transparent;
+  border-style: none;
+  transition: all ease-in-out 0.1s;
+  box-shadow: 4px 4px 8px 5px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+  /* background-color: #ede8ff; */
+}
+
+#new-book button,
+.card1 {
+  width: 400px;
+  min-height: 537px;
+  background: rgba(50, 12, 105, 0.8);
+
+  border-radius: 16px;
+  border-style: none;
+  position: relative;
+  color: #ede8ff;
+}
+
+.card-content {
+  width: 100%;
+  background: rgba(50, 12, 105, 0.9);
+  border-radius: 0 0 16px 16px;
+}
+
+.rate {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #ede8ff;
+}
+
+.rate h3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 65px;
+  height: 65px;
+}
+
+.rate span {
+  position: absolute;
+}
+
+.card-actions {
+  display: flex;
+  width: 100%;
+  position: absolute;
+  justify-content: center;
+  padding: 10px 10px;
+  opacity: 0;
+  bottom: 0;
+  z-index: -1;
+  border-radius: 0 0 16px 16px;
+  /* background-color: #EDE8FF; */
+  transition: all ease-in-out 0.3s;
+}
+
+.card-actions:hover {
+  bottom: -57px;
+}
+
+.card:hover {
+  /* border-radius: 16px 16px 0 0; */
+}
+
+.card:hover > .card-actions {
+  animation: CardActions 0.3s ease-in-out forwards;
+}
+
+.title-desc {
+  width: 100%;
+}
+.title-desc h6 {
+  width: 100%;
+  text-align: end;
+}
+
+.card-actions form {
+  width: 100%;
+}
+
+.btn-outline-primary {
+  background-color: transparent;
+  border: 2px solid #320c69;
+  color: #320c69;
+}
+
+.btn-outline-primary:hover {
+  background-color: #320c69;
+}
+
+.btn-danger {
+  background-color: #e4626f;
+}
+
+.card-actions .btn {
+  width: 100%;
+  border-radius: 50px;
+  font-weight: 600;
+}
+
+@keyframes CardActions {
+  0% {
+    opacity: 0;
+    z-index: 0;
+    bottom: 0px;
+  }
+  30% {
+    opacity: 0;
+    z-index: 0;
+    bottom: -60px;
+  }
+  60% {
+    opacity: 0.5;
+    z-index: 0;
+    bottom: -60px;
+  }
+  100% {
+    opacity: 1;
+    z-index: 1;
+    bottom: -60px;
+  }
+}

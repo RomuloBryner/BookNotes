@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book list</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+
+<body>
+    <div class="container d-flex flex-column py-5 my-5 gap-5">
+        <h1 class="fs-1">My book Lists</h1>
+        <div class="d-flex flex-wrap gap-4">
+            <form action="/filter" method="get" class="filter d-flex gap-0">
+                <input id="entry" type="text" name="bookname">
+                <button class="btn search" type="submit">
+                    <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M15.15 16.375L9.6375 10.8625C9.2 11.2125 8.69687 11.4896 8.12812 11.6938C7.55937 11.8979 6.95417 12 6.3125 12C4.72292 12 3.3776 11.4495 2.27656 10.3484C1.17552 9.2474 0.625 7.90208 0.625 6.3125C0.625 4.72292 1.17552 3.3776 2.27656 2.27656C3.3776 1.17552 4.72292 0.625 6.3125 0.625C7.90208 0.625 9.2474 1.17552 10.3484 2.27656C11.4495 3.3776 12 4.72292 12 6.3125C12 6.95417 11.8979 7.55937 11.6938 8.12812C11.4896 8.69687 11.2125 9.2 10.8625 9.6375L16.375 15.15L15.15 16.375ZM6.3125 10.25C7.40625 10.25 8.33594 9.86719 9.10156 9.10156C9.86719 8.33594 10.25 7.40625 10.25 6.3125C10.25 5.21875 9.86719 4.28906 9.10156 3.52344C8.33594 2.75781 7.40625 2.375 6.3125 2.375C5.21875 2.375 4.28906 2.75781 3.52344 3.52344C2.75781 4.28906 2.375 5.21875 2.375 6.3125C2.375 7.40625 2.75781 8.33594 3.52344 9.10156C4.28906 9.86719 5.21875 10.25 6.3125 10.25Z"
+                            fill="#EDE8FF" />
+                    </svg>
+
+                </button>
+            </form>
+            <form action="/filterby" method="get" class="filter d-flex gap-0">
+                <select name="type" id="entry">
+                    <option value="book_name">Name</option>
+                    <option value="book_rate">Rate</option>
+                    <option value="read_date">Date</option>
+                </select>
+                <button class="btn search" type="submit">Filter</button>
+            </form>
+        </div>
+        <div class="d-flex flex-wrap gap-5 ">
+            <a id="new-book" href="/newbook"><button type="submit" value=""><svg width="96" height="96"
+                        viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M95.8346 54.8196H54.8346V95.8196H41.168V54.8196H0.167969V41.153H41.168V0.152954H54.8346V41.153H95.8346V54.8196Z"
+                            fill="white" />
+                    </svg>
+                </button></a>
+            <% let i=0; %>
+                <% books.forEach(book=> { %>
+
+                    <div class="card d-flex flex-column justify-content-end">
+                        <div class="card1 d-flex flex-column justify-content-end card-<%- i %>"
+                            style="background-image: url(<%= book.book_cover%>); background-position: center; background-size: cover;">
+                            <!-- <img src="<%= book.book_cover%>" alt=""> -->
+                            <% console.log(book.book_cover); %>
+                                <div class="rate">
+                                    <h3>
+                                        <svg width="56" height="55" viewBox="0 0 56 55" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M24.3465 3.19624C25.756 0.0342863 30.244 0.0342824 31.6535 3.19623L36.7298 14.5845C37.3111 15.8886 38.5435 16.784 39.9634 16.9338L52.3629 18.2425C55.8056 18.6059 57.1925 22.8743 54.6209 25.1918L45.3587 33.5388C44.298 34.4947 43.8273 35.9435 44.1236 37.3402L46.7106 49.5372C47.4289 52.9238 43.7979 55.5618 40.7991 53.8322L29.9985 47.6027C28.7617 46.8893 27.2383 46.8893 26.0015 47.6027L15.2009 53.8322C12.2021 55.5618 8.57113 52.9238 9.28942 49.5372L11.8764 37.3402C12.1727 35.9435 11.702 34.4947 10.6413 33.5388L1.37912 25.1918C-1.19253 22.8743 0.194353 18.6059 3.63709 18.2425L16.0366 16.9338C17.4565 16.784 18.6889 15.8886 19.2702 14.5845L24.3465 3.19624Z"
+                                                fill="#5F20B9" fill-opacity="0.95" />
+                                        </svg>
+                                        <span>
+                                            <%= book.book_rate %>
+                                        </span>
+                                    </h3>
+                                </div>
+                                <div class="card-content d-flex p-3">
+                                    <div class="title-desc">
+                                        <h2>
+                                            <%= book.book_name %>
+                                        </h2>
+                                        <p>
+                                            <%= book.book_note %>
+                                        </p>
+                                        <h6>
+                                            <%= book.read_start_date.toLocaleDateString() %> -
+                                                <%= book.read_end_date.toLocaleDateString() %>
+                                        </h6>
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="card-actions align-items-space d-flex flex-rows gap-2 card-<%- i %>">
+                            <form action="/editbook/<%= book.id %>" method="post">
+                                <button class="btn btn-outline-primary" type="submit">Edit</button>
+                            </form>
+                            <form action="/deletebook/<%= book.id %>" method="post">
+                                <button class="btn btn-danger" type="submit">Delete</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <% i++; %>
+                        <% }); %>
+        </div>
+    </div>
+    <script>
+
+    </script>
+</body>
+
+</html>
